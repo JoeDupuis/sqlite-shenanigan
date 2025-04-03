@@ -24,5 +24,5 @@ Things you may want to cover:
 * ...
 
 
-RAILS_LOG_LEVEL=warn RUBY_YJIT_ENABLE=1 SECRET_KEY_BASE=asdf RAILS_ENV=production WEB_CONCURRENCY=20 RAILS_MAX_THREADS=3 bin/rails server
+WEB_CONCURRENCY=20 RAILS_MAX_THREADS=3 bin/rails server
 hey -c 128 -z 10s -m POST http://127.0.0.1:3000/requests
