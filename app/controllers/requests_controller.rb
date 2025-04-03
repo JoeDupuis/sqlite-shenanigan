@@ -30,15 +30,7 @@ class RequestsController < ApplicationController
       parameters: request.request_parameters,
     )
 
-    respond_to do |format|
-      if @request.save
-        format.html { redirect_to @request, notice: "Request was successfully created." }
-        format.json { render :show, status: :created, location: @request }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @request.errors, status: :unprocessable_entity }
-      end
-    end
+    redirect_to @request, notice: "Request was successfully created."
   end
 
   # PATCH/PUT /requests/1 or /requests/1.json
