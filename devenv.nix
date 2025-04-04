@@ -57,6 +57,7 @@ with pkgs; {
     poppler
     poppler_utils
     hey
+    tzdata
   ];
 
   languages.ruby.enable = true;
