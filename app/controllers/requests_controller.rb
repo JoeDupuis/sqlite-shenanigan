@@ -30,14 +30,9 @@ class RequestsController < ApplicationController
       parameters: request.request_parameters,
     )
 
-    if ENV["skip_save"] || params[:skip_save]
-      head :no_content
-      return
-    end
 
-    @request.save!
-
-    redirect_to @request, notice: "Request was successfully created."
+    @request.save! unless ENV["skip_save"] || params[:skip_save]
+    head :no_content
   end
 
   # PATCH/PUT /requests/1 or /requests/1.json
