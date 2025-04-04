@@ -28,5 +28,6 @@ module SqliteScale
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.logger = ActiveSupport::Logger.new(Rails.root.join("storage", "#{Rails.env}.log"))
   end
 end
