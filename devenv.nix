@@ -46,6 +46,8 @@ with pkgs; {
     fi
   '';
 
+  services.postgres.enable = true;
+
   packages = [
     git
     libyaml
