@@ -1,7 +1,7 @@
 require 'sqlite3'
 require 'benchmark'
 
-db = SQLite3::Database.new("test.db")
+db = SQLite3::Database.new("storage/test.db")
 db.execute("CREATE TABLE IF NOT EXISTS test (id INTEGER PRIMARY KEY, data TEXT)")
 
 puts Benchmark.measure {
