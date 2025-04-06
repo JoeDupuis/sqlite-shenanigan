@@ -2,6 +2,8 @@ class RequestsController < ApplicationController
   before_action :set_request, only: %i[ show edit update destroy ]
   skip_before_action :verify_authenticity_token
 
+  SHARDS = [:shard_one, :shard_two, :shard_three, :shard_four, :shard_five, :shard_six, :shard_seven, :shard_eight, :shard_eight, :shard_one]
+
   # GET /requests or /requests.json
   def index
     @requests = Request.all
@@ -31,7 +33,9 @@ class RequestsController < ApplicationController
     )
 
 
-    @request.save! unless ENV["skip_save"] || params[:skip_save]
+    ActiveRecord::Base.connected_to(role: :writing, shard: SHARDS[(Time.now.to_i % 10)]) do
+      @request.save! unless ENV["skip_save"] || params[:skip_save]
+    end
     head :no_content
   end
 
