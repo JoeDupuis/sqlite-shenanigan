@@ -33,7 +33,7 @@ class RequestsController < ApplicationController
     )
 
 
-    ActiveRecord::Base.connected_to(role: :writing, shard: SHARDS[(Time.now.to_i % 10)]) do
+    ActiveRecord::Base.connected_to(role: :writing, shard: SHARDS[rand(8)]) do
       @request.save! unless ENV["skip_save"] || params[:skip_save]
     end
     head :no_content
