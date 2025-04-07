@@ -26,29 +26,28 @@ test:
 production:
   primary:
     <<: *default
-    database: storage/production.sqlite3
+    database: storage/shard_one/production.sqlite3
   primary_shard_two:
     <<: *default
-    database: storage/production_2.sqlite3
+    database: storage/shard_two/production.sqlite3
   primary_shard_three:
     <<: *default
-    database: storage/production_3.sqlite3
+    database: storage/shard_three/production.sqlite3
   primary_shard_four:
     <<: *default
-    database: storage/production_4.sqlite3
+    database: storage/shard_four/production.sqlite3
   primary_shard_five:
     <<: *default
-    database: storage/production_5.sqlite3
+    database: storage/shard_five/production.sqlite3
   primary_shard_six:
     <<: *default
-    database: storage/production_6.sqlite3
+    database: storage/shard_six/production.sqlite3
   primary_shard_seven:
     <<: *default
-    database: storage/production_7.sqlite3
+    database: storage/shard_seven/production.sqlite3
   primary_shard_eight:
     <<: *default
-    database: storage/production_8.sqlite3
-
+    database: storage/shard_eight/production.sqlite3
 
 
     # pragmas:
