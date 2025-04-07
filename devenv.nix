@@ -46,7 +46,28 @@ with pkgs; {
     fi
   '';
 
-  services.postgres.enable = true;
+  services.postgres = {
+    enable = true;
+    settings = {
+      max_connections                    = 40;
+      shared_buffers                     = "25GB";
+      effective_cache_size               = "75GB";
+      maintenance_work_mem               = "2GB";
+      checkpoint_completion_target       = 0.9;
+      wal_buffers                        = "16MB";
+      default_statistics_target          = 100;
+      random_page_cost                   = 1.1;
+      effective_io_concurrency           = 200;
+      work_mem                           = "160MB";
+      huge_pages                         = "try";
+      min_wal_size                       = "1GB";
+      max_wal_size                       = "4GB";
+      max_worker_processes               = 40;
+      max_parallel_workers_per_gather    = 4;
+      max_parallel_workers               = 40;
+      max_parallel_maintenance_workers   = 4;
+    };
+  };
 
   packages = [
     git
