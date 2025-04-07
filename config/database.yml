@@ -27,31 +27,53 @@ production:
   primary:
     <<: *default
     database: storage/shard_one/production.sqlite3
+    pragmas:
+      synchronous: "off"
   primary_shard_two:
     <<: *default
     database: storage/shard_two/production.sqlite3
+    pragmas:
+      synchronous: "off"
+
   primary_shard_three:
     <<: *default
     database: storage/shard_three/production.sqlite3
+    pragmas:
+      synchronous: "off"
+
   primary_shard_four:
     <<: *default
     database: storage/shard_four/production.sqlite3
+    pragmas:
+      synchronous: "off"
+
   primary_shard_five:
     <<: *default
     database: storage/shard_five/production.sqlite3
+    pragmas:
+      synchronous: "off"
+
   primary_shard_six:
     <<: *default
     database: storage/shard_six/production.sqlite3
+    pragmas:
+      synchronous: "off"
+
   primary_shard_seven:
     <<: *default
     database: storage/shard_seven/production.sqlite3
+    pragmas:
+      synchronous: "off"
+
   primary_shard_eight:
     <<: *default
     database: storage/shard_eight/production.sqlite3
+    pragmas:
+      synchronous: "off"
 
 
     # pragmas:
-    #   synchronous: normal
+    #   synchronous: "off"
     #   temp_store: memory
     #   mmap_size: "30000000000"
   cache:
