@@ -58,6 +58,7 @@ with pkgs; {
     poppler_utils
     hey
     tzdata
+    litefs
   ];
 
   languages.ruby.enable = true;
