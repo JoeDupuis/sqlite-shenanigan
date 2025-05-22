@@ -11,3 +11,6 @@ puts Benchmark.measure {
   end
   db.commit
 }
+
+
+test
